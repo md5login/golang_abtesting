@@ -1,7 +1,7 @@
 # golang_abtesting
 A utility to manage rules for a connection
 
-Written by[md5login]
+Written by Michael Sazonov
 ##Install
     $ go get github.com/md5login/abTesting
 
@@ -49,6 +49,16 @@ func main(){
 	log.Fatal(http.ListenAndServe(":12345", nil))
   
 }
+```
+
+##Append rules in runtime
+```go
+rule := ABTesting.Rule{
+		Id: "testRule" ,
+		Exposure: 20 ,
+	}
+	
+ABTesting.AppendRule( rule )
 ```
 
 ## Rules config
