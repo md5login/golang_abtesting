@@ -9,15 +9,17 @@ import (
 	"time"
 )
 
+// The "Exposure" attribute defines the percentage of users to be exposed to this rule (0 - 100)
 type Rule struct{
-	Environment string		`json:"env"`
-	Exposure	int			`json:"exposure"`
-	Id			string		`json:"id"`
+	Environment 	string		`json:"env"`
+	Exposure	int		`json:"exposure"`
+	Id		string		`json:"id"`
 }
 
 var rules []*Rule
 
 // Sets cookie with wanted rule id as value on the request
+// TODO: allow cookie variations
 func SetRule( res *http.ResponseWriter , rule Rule ){
 
 	cookie := http.Cookie{
@@ -27,7 +29,7 @@ func SetRule( res *http.ResponseWriter , rule Rule ){
 		HttpOnly: false ,
 		Path: "/" ,
 	}
-
+	
 	if getRandom( 0 , 100 ) <= rule.Exposure {
 		http.SetCookie( *res , &cookie )
 	}
