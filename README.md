@@ -32,7 +32,7 @@ func handler(w http.ResponseWriter, req *http.Request) {
 	  
 	} else if strings.HasSuffix( req.RequestURI , "?trule=secret_word" ) {
 	
-	  ABTesting.SetRule( w , ABTesting.GetRuleById( "testRule" ) )
+	  ABTesting.SetRule( &w , ABTesting.GetRuleById( "testRule" ) )
 	  http.Redirect( 302 , "/success.html" )
 	  
 	} else {
