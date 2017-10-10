@@ -2,12 +2,13 @@
 A utility to manage rules for a connection
 
 Written by Michael Sazonov
-##Install
+
+## Install
     $ go get github.com/md5login/abTesting
 
-##Usage
+## Usage
 
-*Can be used anywhere with *http.Request, http.ResponseWriter
+Can be used anywhere with *http.Request, http.ResponseWriter*
 
 ```go
 
@@ -51,7 +52,7 @@ func main(){
 }
 ```
 
-##Append rules in runtime
+## Append rules in runtime
 ```go
 rule := ABTesting.Rule{
 		Id: "testRule" ,
